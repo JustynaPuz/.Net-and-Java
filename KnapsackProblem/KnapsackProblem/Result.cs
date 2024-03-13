@@ -37,8 +37,6 @@ namespace KnapsackProblem
             }
             return value;
         }
-
-
         public override string ToString()
         {
             string output = "";

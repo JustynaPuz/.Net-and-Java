@@ -27,7 +27,7 @@ namespace KnapsackProblem
             Random rnd = new Random(seed);
             for (int i = 0; i < n; i++)
             {
-                items.Add(new Item(rnd.Next(10), rnd.Next(1, 11), i));
+                items.Add(new Item(rnd.Next(1, 11), rnd.Next(1, 11), i));
             }
         }
 

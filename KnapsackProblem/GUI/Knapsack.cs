@@ -41,6 +41,7 @@ namespace GUI
                 else
                 {
                     MessageBox.Show("Number must be greater than 0");
+                    Items_textbox.Text = "";
                 }
             }
             catch (FormatException)
@@ -71,6 +72,7 @@ namespace GUI
                 else
                 {
                     MessageBox.Show("Number must be greater than 0");
+                    Capacity_textbox.Text = "";
                 }
             }
             catch (FormatException)
@@ -101,7 +103,7 @@ namespace GUI
 
         private void Instance_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Instance_listbox.DataSource = instance.GetItems();
+            // Instance_listbox.DataSource = instance.GetItems();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -116,6 +118,11 @@ namespace GUI
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Knapsack_Load(object sender, EventArgs e)
         {
 
         }

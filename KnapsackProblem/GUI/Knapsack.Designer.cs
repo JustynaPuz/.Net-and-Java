@@ -191,6 +191,7 @@
             Controls.Add(Solve_button);
             Name = "Knapsack";
             Text = "Form1";
+            Load += Knapsack_Load;
             ResumeLayout(false);
             PerformLayout();
         }
