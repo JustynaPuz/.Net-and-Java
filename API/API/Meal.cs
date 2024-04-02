@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("GUI")]
 namespace API
 {
     internal class Meal
@@ -11,26 +12,35 @@ namespace API
 
         [Required]
 
-        int IdOfMeal { get; set; }
-        String nameOfMeal { get; set; }
+
+        public string NameOfMeal { get; set; }
         public Meal(String name, String? category, String instruction, int id)
         {
-            nameOfMeal = name;
+            NameOfMeal = name;
             this.category = category;
             this.instruction = instruction;
-            IdOfMeal = id;
+            Id = id;
         }
         public Meal()
         {
-            this.nameOfMeal = "";
+            this.NameOfMeal = "";
             this.category = "";
             this.instruction = "";
 
         }
+        public string getInstruction()
+        {
+            return this.instruction;
+        }
+
+        public string getName()
+        {
+            return this.NameOfMeal;
+        }
 
         public override string ToString()
         {
-            return $"Meal: {nameOfMeal}\nCategory: {category} \nInstruction: {instruction}";
+            return $"Meal: {NameOfMeal}\nCategory: {category} \n Instruction: {instruction}";
         }
 
     }

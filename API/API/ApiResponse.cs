@@ -1,5 +1,6 @@
-﻿using System.Text.Json;
-
+﻿using System.Runtime.CompilerServices;
+using System.Text.Json;
+[assembly: InternalsVisibleTo("GUI")]
 namespace API
 {
     internal class ApiResponse
@@ -8,13 +9,14 @@ namespace API
         String nameOfMeal = "";
 
 
-        public async Task<Meal> GetNameOfMeal(String nameOfMeal)
+        public async Task<Meal> GetSpecificMeal(String nameOfMeal)
         {
+            char.ToUpper(nameOfMeal[0]);
 
             //By name of meal
             string call = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + nameOfMeal;
             Meal meal = new Meal();
-            // Console.WriteLine(call);
+
 
             string response = await client.GetStringAsync(call);
 
@@ -42,7 +44,6 @@ namespace API
 
             //By name of meal
             string call = "https://www.themealdb.com/api/json/v1/1/search.php?f=" + letter;
-            Console.WriteLine(call);
             Meal meal;
             List<Meal> meals = new List<Meal>();
 
