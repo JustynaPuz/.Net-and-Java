@@ -16,6 +16,8 @@ namespace GUI
             this.Location = main.Location;
             this.StartPosition = main.StartPosition;
             LoadCategories();
+            this.BackgroundImage = Image.FromFile("C:\\Users\\Justyna\\Desktop\\.Net-and-Java\\API\\GUI\\background.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             comboBoxCategory.SelectedIndexChanged += comboBox_SelectedIndexChanged;
 
         }
@@ -67,6 +69,11 @@ namespace GUI
             string name = comboBoxMeal.Text;
             Meal meal = await response.GetSpecificMeal(name);
             textBox.Text = meal.getInstruction();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -14,13 +14,14 @@ namespace API
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "menu.db");
+            DbPath = System.IO.Path.Join("patC:/Users/Justyna/AppData/Local/menu.dbh", "menu.db");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            optionsBuilder.UseSqlite($"Data Source=C:/Users/Justyna/AppData/Local/menu.db");
         }
+
         public async Task LoadAllElements()
         {
             List<Meal> meals = new List<Meal>();
@@ -64,6 +65,7 @@ namespace API
                         throw new Exception("Failed to load meal from API");
                     }
                 }
+
             }
         }
     }

@@ -129,6 +129,3 @@ namespace API
         }
     }
 }
-
-//List all meal categories    www.themealdb.com / api / json / v1 / 1 / categories.php
-// string call = "https://www.themealdb.com/api/json/v1/1/categories.php";
