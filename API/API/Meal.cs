@@ -11,7 +11,6 @@ namespace API
 
 
         [Required]
-
         public string NameOfMeal { get; set; }
         public int Id { get; set; }
         public Meal(String name, String? category, String instruction, int id)

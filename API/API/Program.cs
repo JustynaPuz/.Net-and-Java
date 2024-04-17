@@ -7,7 +7,7 @@
             ApiResponse response = new ApiResponse();
             Menu db = new Menu();
 
-            Meal mealll = await db.getSpecificMeal("Spaghetti Bolognese");
+            Meal mealll = await db.getSpecificMeal("Spaghetti");
             Console.WriteLine(mealll.ToString());
 
 
