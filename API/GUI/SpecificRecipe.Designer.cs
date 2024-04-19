@@ -40,9 +40,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bodoni MT", 14F);
-            label1.Location = new Point(190, 35);
+            label1.Location = new Point(217, 47);
             label1.Name = "label1";
-            label1.Size = new Size(144, 23);
+            label1.Size = new Size(185, 29);
             label1.TabIndex = 0;
             label1.Text = "Name of the dish";
             label1.Click += label1_Click;
@@ -50,9 +50,10 @@
             // Back
             // 
             Back.Font = new Font("Bodoni MT", 14F);
-            Back.Location = new Point(48, 35);
+            Back.Location = new Point(55, 47);
+            Back.Margin = new Padding(3, 4, 3, 4);
             Back.Name = "Back";
-            Back.Size = new Size(85, 31);
+            Back.Size = new Size(114, 41);
             Back.TabIndex = 1;
             Back.Text = "BACK";
             Back.UseVisualStyleBackColor = true;
@@ -60,18 +61,20 @@
             // 
             // nameInput
             // 
-            nameInput.Location = new Point(190, 72);
+            nameInput.Location = new Point(217, 96);
+            nameInput.Margin = new Padding(3, 4, 3, 4);
             nameInput.Name = "nameInput";
-            nameInput.Size = new Size(144, 23);
+            nameInput.Size = new Size(164, 27);
             nameInput.TabIndex = 2;
             nameInput.TextChanged += nameInput_TextChanged;
             // 
             // textBox
             // 
-            textBox.Location = new Point(48, 156);
+            textBox.Location = new Point(55, 208);
+            textBox.Margin = new Padding(3, 4, 3, 4);
             textBox.Multiline = true;
             textBox.Name = "textBox";
-            textBox.Size = new Size(400, 325);
+            textBox.Size = new Size(457, 432);
             textBox.TabIndex = 3;
             textBox.TextChanged += textBox1_TextChanged;
             // 
@@ -79,18 +82,19 @@
             // 
             recipeLabel.AutoSize = true;
             recipeLabel.Font = new Font("Bodoni MT", 14F);
-            recipeLabel.Location = new Point(48, 121);
+            recipeLabel.Location = new Point(55, 161);
             recipeLabel.Name = "recipeLabel";
-            recipeLabel.Size = new Size(63, 23);
+            recipeLabel.Size = new Size(81, 29);
             recipeLabel.TabIndex = 4;
             recipeLabel.Text = "Recipe";
             // 
             // button1
             // 
             button1.Font = new Font("Bodoni MT", 14F);
-            button1.Location = new Point(48, 72);
+            button1.Location = new Point(55, 96);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(85, 31);
+            button1.Size = new Size(114, 41);
             button1.TabIndex = 5;
             button1.Text = "CHECK";
             button1.UseVisualStyleBackColor = true;
@@ -98,15 +102,16 @@
             // 
             // SpecificRecipe
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(484, 511);
+            ClientSize = new Size(553, 681);
             Controls.Add(button1);
             Controls.Add(recipeLabel);
             Controls.Add(textBox);
             Controls.Add(nameInput);
             Controls.Add(Back);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SpecificRecipe";
             Text = "SpecificRecipe";
             Load += SpecificRecipe_Load;

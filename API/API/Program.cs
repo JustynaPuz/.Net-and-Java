@@ -7,71 +7,77 @@
             ApiResponse response = new ApiResponse();
             Menu db = new Menu();
 
+            Meal mealll = await db.getSpecificMeal("Spaghetti");
+            Console.WriteLine(mealll.ToString());
+
+
             Meal meal = new Meal();
-            meal = await db.getSpecificMeal("Spaghetti");
+            /*    int option = -1;
 
+                while (option != 4)
+                {
 
+                    Console.WriteLine("\nChoose one option: \n 1 - get recipes of specific meal\n 2 - get all meals that start on specific letter\n 3 - get all meals from specific category \n 4 - quit\n Answer: \n");
+                    option = int.Parse(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            {
+                                Console.WriteLine("Name of meal :");
+                                string name = Console.ReadLine();
 
-            int option = -1;
+                                meal = await response.GetSpecificMeal(name);
 
-            /* while (option != 4)
-             {
+                                if (meal != null)
+                                {
+                                    Console.WriteLine(meal.ToString());
+                                }
 
-                 Console.WriteLine("\nChoose one option: \n 1 - get recipes of specific meal\n 2 - get all meals that start on specific letter" +
-                     "\n 3 - get all meals from specific category \n 4 - quit \n Answer: ");
-                 option = int.Parse(Console.ReadLine());
-                 switch (option)
-                 {
-                     case 1:
-                         {
-                             Console.WriteLine("Name of meal :");
-                             string name = Console.ReadLine();
+                                break;
+                            }
 
-                             meal = await response.GetSpecificMeal(name);
+                        case 2:
+                            {
+                                *//* Console.WriteLine("Letter : ");
+                                 ConsoleKeyInfo letterKey = Console.ReadKey();
+                                 char letter = letterKey.KeyChar;
 
-                             Console.WriteLine(meal.ToString());
-                             break;
-                         }
+                                 List<Meal> mealsLetter = await response.GetListOfAllMealsByFirstLetter(letter);
 
-                     case 2:
-                         {
-                             Console.WriteLine("Letter : \n");
-                             ConsoleKeyInfo letterKey = Console.ReadKey();
-                             char letter = letterKey.KeyChar;
+                                 foreach (Meal item in mealsLetter)
+                                 {
+                                     Console.WriteLine(" -" + item.getName());
+                                 }
+                                 option = -2;*//*
+                                break;
 
-                             List<Meal> mealsLetter = await response.GetListOfAllMealsByFirstLetter(letter);
+                            }
 
-                             foreach (Meal item in mealsLetter)
-                             {
-                                 Console.WriteLine(" - " + item.getName());
-                             }
-                             break;
+                        case 3:
+                            {
+                                Console.WriteLine("Categories");
+                                List<string> categories = await response.GetAllCategories();
 
-                         }
+                                foreach (string category in categories)
+                                {
+                                    Console.WriteLine(category);
+                                }
+                                Console.WriteLine("Choose one: ");
+                                string categoryInput = Console.ReadLine();
 
-                     case 3:
-                         {
-                             Console.WriteLine("Categories");
-                             List<string> categories = await response.GetAllCategories();
+                                List<string> meals = await response.GetAllMealFromSpecificCategory(categoryInput);
 
-                             foreach (string category in categories)
-                             {
-                                 Console.WriteLine(category);
-                             }
-                             Console.WriteLine("Choose one: ");
-                             string categoryInput = Console.ReadLine();
+                                foreach (string item in meals)
+                                {
+                                    Console.WriteLine(" -" + item);
+                                }
 
-                             List<string> meals = await response.GetAllMealFromSpecificCategory(categoryInput);
+                                break;
+                            }
+                        default: break;
 
-                             foreach (string item in meals)
-                             {
-                                 Console.WriteLine(" - " + item);
-                             }
-                             break;
-                         }
-
-                 }
-             }*/
+                    }
+                }*/
 
 
         }

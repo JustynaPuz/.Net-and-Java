@@ -11,6 +11,8 @@ namespace GUI
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackgroundImage = Image.FromFile("C:\\Users\\Justyna\\Desktop\\.Net-and-Java\\API\\GUI\\background.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
