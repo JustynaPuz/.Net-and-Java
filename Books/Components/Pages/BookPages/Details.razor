@@ -1,0 +1,83 @@
+﻿@page "/books/details"
+@*@attribute [Authorize] *@
+@inject Books.Data.ApplicationDbContext DB
+@using Books.Components
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.EntityFrameworkCore
+@rendermode InteractiveServer
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    @if (book is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Title</dt>
+            <dd class="col-sm-10">@book.Title</dd>
+            <dt class="col-sm-2">Author</dt>
+            <dd class="col-sm-10">@book.Author</dd>
+            <dt class="col-sm-2">Description</dt>
+            <dd class="col-sm-10">@book.Description</dd>
+            <dt class="col-sm-2">RelaseDate</dt>
+            <dd class="col-sm-10">@book.RelaseDate</dd>
+            <dt class="col-sm-2">Rate</dt>
+            <dd class="col-sm-10">@book.Rate</dd>
+        </dl>
+        <div>
+            <a href="@($"/books/edit?id={book.Id}")">Edit</a> |
+            <a href="@($"/books")">Back to List</a>
+        </div>
+
+        <div>
+            <input type="number" @bind="newRating" min="1" max="5" step="1.0" class="form-control" placeholder="Rate from 1 to 5" />
+            <button class="btn btn-primary" @onclick="AddRating">Add Rating</button>
+        </div>
+
+    }
+</div>
+
+@code {
+
+    private Book? book;
+    private int newRating;
+
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        book = await DB.Book.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (book is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task AddRating()
+    {
+        if(book != null) {
+            if(book.Ratings == null)
+            {
+                book.Ratings = new List<double>();
+            }
+            book.Ratings.Add(newRating);
+            book.Rate = book.Ratings.Average();
+
+            DB.Book.Update(book);
+            await DB.SaveChangesAsync();
+
+            StateHasChanged();
+        }
+    }
+    
+}

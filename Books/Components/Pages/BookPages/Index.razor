@@ -1,0 +1,96 @@
+﻿@page "/books"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject Books.Data.ApplicationDbContext DB
+@using Books.Components
+@using Microsoft.EntityFrameworkCore
+@rendermode InteractiveServer
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="books/create">Create New</a>
+</p>
+
+@if (sortedBooks != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th @onclick="() => SortData(nameof(Book.Title))">Title</th>
+                <th @onclick="() => SortData(nameof(Book.Author))">Author</th>
+                <th @onclick="() => SortData(nameof(Book.Rate))">Rate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in sortedBooks)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Rate</td>
+                    <td>
+                        <a href="@($"books/edit?id={book.Id}")">Edit</a> |
+                        <a href="@($"books/details?id={book.Id}")">Details</a> |
+                        <a href="@($"books/delete?id={book.Id}")">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p><em>Loading...</em></p>
+}
+@code {
+    private List<Book> books;
+    private List<Book> sortedBooks;
+    private string currentColumn;
+    private bool isAscending = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        books = await DB.Book.ToListAsync();
+        sortedBooks = books;
+        SortData(nameof(Book.Title));
+    }
+
+    private void SortData(string columnName)
+    {
+        if (columnName == currentColumn)
+        {
+            isAscending = !isAscending;
+        }
+        else
+        {
+            currentColumn = columnName;
+            isAscending = true;
+        }
+
+        sortedBooks = isAscending ? books.OrderBy(x => GetPropertyValue(x, columnName)).ToList()
+                                  : books.OrderByDescending(x => GetPropertyValue(x, columnName)).ToList();
+
+        StateHasChanged();
+    }
+
+    private object GetPropertyValue(object obj, string propName)
+    {
+        return obj.GetType().GetProperty(propName).GetValue(obj, null);
+    }
+}
+
+
+@* <QuickGrid Class="table" Items="DB.Book">
+    <PropertyColumn Property="book => book.Title" />
+    <PropertyColumn Property="book => book.Author" />
+    <PropertyColumn Property="book => book.Rate" />
+
+    <TemplateColumn Context="book">
+        <a href="@($"books/edit?id={book.Id}")">Edit</a> |
+        <a href="@($"books/details?id={book.Id}")">Details</a> |
+        <a href="@($"books/delete?id={book.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid> *@
