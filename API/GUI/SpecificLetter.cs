@@ -11,7 +11,10 @@ namespace GUI
             this.main = main;
             this.Location = main.Location;
             this.StartPosition = main.StartPosition;
+            this.BackgroundImage = Image.FromFile("C:\\Users\\Justyna\\Desktop\\.Net-and-Java\\API\\GUI\\background.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             InitializeTextBox();
+            // letterInput.KeyPress += new KeyPressEventHandler(letterInput_KeyPressed);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,7 +34,6 @@ namespace GUI
 
             main.Show();
             this.Close();
-
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -73,6 +75,24 @@ namespace GUI
         private void letterInput_TextChanged(object sender, EventArgs e)
         {
 
+
+            if (letterInput.Text.Length != 1 || !char.IsLetter(letterInput.Text[0]))
+            {
+                letterInput.Text = "";
+            }
+
         }
+
+        /*  private void letterInput_KeyPressed(object sender, e)
+          {
+              *//* if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && letterInput.Text.Length > 1)
+               {
+                   e.Handled = true;
+               }*//*
+
+
+          }*/
     }
 }
+
+

@@ -6,14 +6,13 @@ namespace API
     internal class Meal
     {
 
-        String? category { get; set; }
-        String instruction { get; set; }
-        public int Id { get; set; }
+        public String? category { get; set; }
+        public String instruction { get; set; }
+
 
         [Required]
-
-
         public string NameOfMeal { get; set; }
+        public int Id { get; set; }
         public Meal(String name, String? category, String instruction, int id)
         {
             NameOfMeal = name;

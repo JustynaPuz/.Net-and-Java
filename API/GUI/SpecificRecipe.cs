@@ -19,6 +19,8 @@ namespace GUI
             this.main = main;
             this.Location = main.Location;
             this.StartPosition = main.StartPosition;
+            this.BackgroundImage = Image.FromFile("C:\\Users\\Justyna\\Desktop\\.Net-and-Java\\API\\GUI\\background.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         public void InitializeTextBox()
