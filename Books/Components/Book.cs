@@ -12,6 +12,7 @@ namespace Books.Components
         public DateTime? RelaseDate { get; set; }
         public double? Rate { get; set; }
         public List<double>? Ratings { get; set; }
+        public string? ImageUrl { get; set; }
 
         public Book()
         {

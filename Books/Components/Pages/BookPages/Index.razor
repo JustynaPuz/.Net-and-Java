@@ -1,4 +1,5 @@
 ﻿@page "/books"
+
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject Books.Data.ApplicationDbContext DB
 @using Books.Components
@@ -7,7 +8,7 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Index</h1>
+<h1>Books</h1>
 
 <p>
     <a href="books/create">Create New</a>
@@ -15,13 +16,24 @@
 
 @if (sortedBooks != null)
 {
+    <head>
+        <style>
+            .bordered {
+                border: 2px solid #333; 
+                padding: 8px;
+                background-color: #f9f9f9; 
+                cursor: pointer; 
+            }
+        </style>
+    </head>
     <table class="table">
         <thead>
+
             <tr>
-                <th @onclick="() => SortData(nameof(Book.Title))">Title</th>
-                <th @onclick="() => SortData(nameof(Book.Author))">Author</th>
-                <th @onclick="() => SortData(nameof(Book.Rate))">Rate</th>
-                <th>Actions</th>
+                <th @onclick="() => SortData(nameof(Book.Title))" class="bordered">Title</th>
+                <th @onclick="() => SortData(nameof(Book.Author))" class="bordered">Author</th>
+                <th @onclick="() => SortData(nameof(Book.Rate))" class="bordered">Rate</th>
+                <th>  Actions</th>
             </tr>
         </thead>
         <tbody>

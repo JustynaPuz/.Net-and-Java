@@ -8,12 +8,19 @@
 
 <p>This component demonstrates showing data.</p>
 
+<style>
+    .spacing-bottom {
+        margin-bottom: 20px;
+    }
+</style>
+
 @if (forecastsFiltered == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
+    <input class="form-control" placeholder="Wpisz nazwę do filtrowania" @oninput="Input" />
     <table class="table">
         <thead>
             <tr>
@@ -40,10 +47,10 @@ else
     </table>
 
     <p role=" status "> Number of warm days : @numberOfWarmDays </p>
-    <button class="btn btn-primary" @onclick="() => FilterBelow15()">Filtruj dni poniżej 15°C</button>
-    <button class="btn btn-secondary" @onclick="RestoreForecasts">Przywróć oryginalną listę</button>
+    <button class="btn btn-primary" class=" spacing-bottom" @onclick="() => FilterBelow15()">Filtruj dni poniżej 15°C</button>
+    <button class="btn btn-secondary" class=" spacing-bottom" @onclick="RestoreForecasts">Przywróć oryginalną listę</button>
 
-    <input class="form-control" placeholder="Wpisz nazwę do filtrowania" @oninput="Input" />
+   
 
     ;
 }

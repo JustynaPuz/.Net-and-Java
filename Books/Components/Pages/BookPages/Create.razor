@@ -1,5 +1,5 @@
 ﻿@page "/books/create"
-@*@attribute [Authorize] *@
+@attribute [Authorize] 
 @inject Books.Data.ApplicationDbContext DB
 @using Books.Components
 @using Microsoft.AspNetCore.Authorization
@@ -30,7 +30,8 @@
                 <label for="description" class="form-label">Description:</label> 
                 <InputText id="description" @bind-Value="Book.Description" class="form-control" /> 
                 <ValidationMessage For="() => Book.Description" class="text-danger" /> 
-            </div>        
+            </div>
+            
             <div class="mb-3">
                 <label for="relasedate" class="form-label">RelaseDate:</label> 
                 <InputDate id="relasedate" @bind-Value="Book.RelaseDate" class="form-control" /> 
@@ -41,6 +42,12 @@
                 <InputNumber id="initialRating" @bind-Value="Book.Rate" class="form-control" />
                 <ValidationMessage For="() => initialRating" class="text-danger" />
             </div>
+            <div class="mb-3">
+                <label for="url" class="form-label">Url:</label>
+                <InputText id="url" @bind-Value="Book.ImageUrl" class="form-control" />
+                <ValidationMessage For="() => Book.ImageUrl" class="text-danger" />
+            </div>
+           
 
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>

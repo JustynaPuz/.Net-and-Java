@@ -18,17 +18,19 @@
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="books">
-                <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Index
+        <div class="nav-item px-3" style="display: flex; align-items: start; justify-content: safe center">
+            <NavLink class="nav-link" href="books" style="display: flex; align-items: start;">
+                <span class="bi bi-book" aria-hidden="true"></span> Books
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+       @* <div class="nav-item px-3">
             <NavLink class="nav-link" href="auth">
                 <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Auth Required
             </NavLink>
         </div>
+
+        *@
 
         <AuthorizeView>
             <Authorized>
