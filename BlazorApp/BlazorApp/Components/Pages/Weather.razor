@@ -47,11 +47,8 @@ else
     </table>
 
     <p role=" status "> Number of warm days : @numberOfWarmDays </p>
-    <button class="btn btn-primary" class=" spacing-bottom" @onclick="() => FilterBelow15()">Filtruj dni poniżej 15°C</button>
-    <button class="btn btn-secondary" class=" spacing-bottom" @onclick="RestoreForecasts">Przywróć oryginalną listę</button>
-
-   
-
+    <button class="btn btn-primary"  @onclick="() => FilterBelow15()">Filtruj dni poniżej 15°C</button>
+    <button class="btn btn-secondary"  @onclick="RestoreForecasts">Przywróć oryginalną listę</button>
     ;
 }
 
