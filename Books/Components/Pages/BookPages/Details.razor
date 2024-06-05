@@ -64,7 +64,6 @@
     [SupplyParameterFromQuery]
     public int Id { get; set; }
 
-
     protected override async Task OnInitializedAsync()
     {
         book = await DB.Book.FirstOrDefaultAsync(m => m.Id == Id);
@@ -74,7 +73,6 @@
             NavigationManager.NavigateTo("notfound");
         }
     }
-
     private async Task AddRating()
     {
         if(book != null) {

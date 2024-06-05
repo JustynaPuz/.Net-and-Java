@@ -94,15 +94,3 @@ else
     }
 }
 
-
-@* <QuickGrid Class="table" Items="DB.Book">
-    <PropertyColumn Property="book => book.Title" />
-    <PropertyColumn Property="book => book.Author" />
-    <PropertyColumn Property="book => book.Rate" />
-
-    <TemplateColumn Context="book">
-        <a href="@($"books/edit?id={book.Id}")">Edit</a> |
-        <a href="@($"books/details?id={book.Id}")">Details</a> |
-        <a href="@($"books/delete?id={book.Id}")">Delete</a>
-    </TemplateColumn>
-</QuickGrid> *@
